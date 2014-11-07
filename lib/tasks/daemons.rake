@@ -6,7 +6,7 @@ task :daemons => "daemons:status"
 daemons_dir = Daemons::Rails.configuration.daemons_directory
 
 namespace :daemons do
-  %w[start stop status].each do |arg|
+  %w[start stop restart status].each do |arg|
     desc "#{arg.capitalize} all daemons."
     task :"#{arg}" do
       puts `#{daemons_dir}/daemons #{arg}`
